@@ -1,0 +1,5 @@
+#include <stdio.h>
+
+// toca meter una funcion para iniciar siquiera el proceso mi compañero me dijo que 
+// solo es necesario el sdio.h y lo mejor para crear matrices con numeros como es una funcion(4,3,5)
+void inicializarArreglo(int arr[][10][10], int dim1, int dim2, int dim3) { //funcion ista segun yo
