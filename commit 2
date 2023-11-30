@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+// toca meter una funcion para iniciar siquiera el proceso mi compañero me dijo que 
+// solo es necesario el sdio.h y lo mejor para crear matrices con numeros como es una funcion(4,3,5)
+void inicializarArreglo(int arr[][10][10], int dim1, int dim2, int dim3) { //funcion ista segun yo
+    // esto mete los 0 definidos por el profesor a exepcion del la ultima matriz
+    for (int i = 0; i < dim1 - 1; i++) {
+        for (int j = 0; j < dim2; j++) {
+            for (int k = 0; k < dim3; k++) {
+                arr[i][j][k] = 0;
+            }
+        }
+    }
+    //este llena la capa de la matriz a unos pero solo la ultima 
+    for (int j = 0; j < dim2; j++) {
+        for (int k = 0; k < dim3; k++) {
+            arr[dim1 - 1][j][k] = 1;
+        }
+    }
+}
+
