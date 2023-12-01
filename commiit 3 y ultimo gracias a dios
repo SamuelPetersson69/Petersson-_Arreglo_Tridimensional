@@ -1,0 +1,66 @@
+#include <stdio.h>
+
+// toca meter una funcion para iniciar siquiera el proceso mi compañero me dijo que 
+// solo es necesario el sdio.h y lo mejor para crear matrices con numeros como es una funcion(4,3,5)
+void inicializarArreglo(int arr[][10][10], int dim1, int dim2, int dim3) { //funcion ista segun yo
+    // esto mete los 0 definidos por el profesor a exepcion del la ultima matriz
+    for (int i = 0; i < dim1 - 1; i++) {
+        for (int j = 0; j < dim2; j++) {
+            for (int k = 0; k < dim3; k++) {
+                arr[i][j][k] = 0;
+            }
+        }
+    }
+    //este llena la capa de la matriz a unos pero solo la ultima 
+    for (int j = 0; j < dim2; j++) {
+        for (int k = 0; k < dim3; k++) {
+            arr[dim1 - 1][j][k] = 1;
+        }
+    }
+}
+
+
+// esa cantidad imprime las columnas matrices etc solo los imprime a 0 tecnicamente tambien a la ultima pero esta es cambiada por la otra ecuacion de arribita
+void imprimirArreglo(int arr[][10][10], int dim1, int dim2, int dim3) {
+    printf("Elementos del arreglo tridimensional:\n");
+    // Itera sobre el arreglo tridimensional e imprime los elementos de cada capa
+    for (int i = 0; i < dim1; i++) {
+        printf("Capa %d:\n", i + 1);
+        for (int j = 0; j < dim2; j++) {
+            for (int k = 0; k < dim3; k++) {
+                printf("%d ", arr[i][j][k]);
+            }
+            printf("\n");
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int dim1, dim2, dim3;
+
+    // con esto solo pidi y guardo las dimenciones filas y columnas de la funcion esto fue de plano lo mas facil 
+    printf("Ingrese el número de capas para cada dimensión del arreglo tridimensional:\n");
+    printf("Capas para Dimensión 1: ");
+    scanf("%d", &dim1);
+    printf("Capas para Dimensión 2: ");
+    scanf("%d", &dim2);
+    printf("Capas para Dimensión 3: ");
+    scanf("%d", &dim3);
+
+    // esto verifica que no haya mas de 10 capas porque asi lo designe ¿que por que? bueno mi compañero hizo lo mismo y no entendi del todo si explicacion
+    if (dim1 > 10 || dim2 > 10 || dim3 > 10) {
+        printf("El número de capas no puede ser mayor que 10.\n");
+        return 1;
+    }
+
+    int arreglo[dim1][10][10];
+
+    // esto accede a la funcion para iniciar el arreglo
+    inicializarArreglo(arreglo, dim1, dim2, dim3);
+
+    // y esto invoca a la funcion para imprimirla estas 2 son geniales
+    imprimirArreglo(arreglo, dim1, dim2, dim3);
+
+    return 0;
+}
